@@ -27,9 +27,8 @@ void addTodo(TodoItemData item) {
   user.todoItems.add(item);
 }
 
-class TodoView extends StatefulWidget {
+class TodoView extends StatefulWidget with TodoItemData {
   TodoView ({
-    super.key,
     this.color = const Color(0xFFFFE306),
     this.child,
   });
@@ -38,7 +37,7 @@ class TodoView extends StatefulWidget {
   final Widget? child;
 
   @override
-  State<Bird> createState() => _BirdState();
+  State<TodoView> createState() => _TodoViewState();
 }
 
 
@@ -54,6 +53,38 @@ class App extends StatelessWidget {
     );
   }
 }
+
+
+void main() {
+  for (int i = 0; i < 10; i++) {
+    print('hello ${i + 1}');
+  }
+  var t = TodoItemData(
+    name: "afdasf",
+    done: true,
+  );
+
+  print(t.describe());
+
+  for (int i = 0; i < 10; i++) {
+    var t = TodoItemData(
+      name: "item $i",
+      done: false,
+    );
+    addTodo(t);
+  }
+
+  print(user.todoItems.map((t) => t.describe()));
+  
+  runApp(App());
+  
+}
+
+
+//
+
+
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -117,29 +148,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-void main() {
-  for (int i = 0; i < 10; i++) {
-    print('hello ${i + 1}');
-  }
-  var t = TodoItemData(
-    name: "afdasf",
-    done: true,
-  );
-
-  print(t.describe());
-
-  for (int i = 0; i < 10; i++) {
-    var t = TodoItemData(
-      name: "item $i",
-      done: false,
-    );
-    addTodo(t);
-  }
-
-  print(user.todoItems.map((t) => t.describe()));
-  
-  runApp(App());
-  
 }
