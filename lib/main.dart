@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license
 // that can be found in the LICENSE file.
 
+//asfd safsa
+
 import 'package:flutter/material.dart';
 
 
@@ -27,7 +29,7 @@ void addTodo(TodoItemData item) {
   user.todoItems.add(item);
 }
 
-class TodoView extends StatefulWidget with TodoItemData {
+/* class TodoView extends StatefulWidget with TodoItemData {
   TodoView ({
     this.color = const Color(0xFFFFE306),
     this.child,
@@ -39,7 +41,7 @@ class TodoView extends StatefulWidget with TodoItemData {
   @override
   State<TodoView> createState() => _TodoViewState();
 }
-
+ */
 
 class App extends StatelessWidget {
   @override
